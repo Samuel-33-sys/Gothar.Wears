@@ -93,8 +93,16 @@ export const Listing = () => {
                    <div key={star} className="flex items-center space-x-3 text-sm text-gray-500 cursor-pointer hover:text-primary transition-colors">
                       <div className="w-4 h-4 border border-gray-300 rounded-sm" />
                       <div className="flex text-accent">
-                         {[...Array(star)].map((_, i) => <Star key={i} size={12} fill="currentColor" />)}
-                         {[...Array(5-star)].map((_, i) => <Star key={i} size={12} />)}
+                         {[...Array(star)].map((_, i) => (
+                            <React.Fragment key={i}>
+                               <Star size={12} fill="currentColor" />
+                            </React.Fragment>
+                         ))}
+                         {[...Array(5-star)].map((_, i) => (
+                            <React.Fragment key={i}>
+                               <Star size={12} />
+                            </React.Fragment>
+                         ))}
                       </div>
                       <span className="text-[10px]">& Up</span>
                    </div>
@@ -146,7 +154,7 @@ export const Listing = () => {
   );
 };
 
-const Star = ({ size, fill, key }: { size: number; fill?: string; key?: React.Key }) => (
+const Star = ({ size, fill }: { size: number; fill?: string }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill={fill || 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>

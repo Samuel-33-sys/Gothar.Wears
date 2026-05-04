@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, ShoppingCart, User, Heart, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { AIChat } from './AIChat';
 
 const Navbar = ({ cartCount }: { cartCount: number }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -192,6 +193,7 @@ export const Layout = ({ children, cartCount }: { children: React.ReactNode; car
       <main className="flex-grow">
         {children}
       </main>
+      <AIChat />
       <Footer />
     </div>
   );

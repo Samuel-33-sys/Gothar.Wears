@@ -122,7 +122,11 @@ export const Home = () => {
       <section className="bg-secondary py-24">
         <div className="max-w-3xl mx-auto px-4 text-center space-y-8">
           <div className="flex justify-center text-accent">
-            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
+            {[...Array(5)].map((_, i) => (
+              <React.Fragment key={i}>
+                <Star size={20} fill="currentColor" />
+              </React.Fragment>
+            ))}
           </div>
           <h3 className="text-2xl md:text-4xl font-display font-bold italic tracking-tight leading-relaxed">
             "Excellent quality and fast delivery. This is my go-to store now!"
@@ -158,7 +162,7 @@ export const Home = () => {
   );
 };
 
-const Star = ({ size, fill, key }: { size: number; fill: string; key?: React.Key }) => (
+const Star = ({ size, fill }: { size: number; fill: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
